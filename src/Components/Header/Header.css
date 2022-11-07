@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  width: 100vw;
+  background-color: navy;
+}
+
+.brand {
+  color: antiquewhite;
+  padding-left: 50px;
+}
