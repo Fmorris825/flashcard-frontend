@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 
-const Sidebar = ({ collections }) => {
-  return <div></div>;
+import "./Sidebar.css";
+import CollectionContainer from "../CollectionContainer.jsx/CollectionContainer";
+import Collection from "../Collection/Collection";
+
+const Sidebar = ({ collections, setActiveCollectionId, activeCollection }) => {
+  const [show, setShow] = useState(false);
+
+  return (
+    <div className="sidebar">
+      <CollectionContainer collections={collections} />
+    </div>
+  );
 };
 
 export default Sidebar;

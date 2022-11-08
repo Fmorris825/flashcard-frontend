@@ -1,0 +1,15 @@
+.collection_container {
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.btn_container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  background-color: black;
+}
+
+.btn {
+}
