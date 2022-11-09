@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import Card from "../Card/Card";
 
-const CardViewer = () => {
-  return;
+const CardViewer = ({ activeCollectionId }) => {
+  return (
+    <div>
+      <Card activeCollection={activeCollectionId} />
+    </div>
+  );
 };
 
 export default CardViewer;

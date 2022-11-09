@@ -35,7 +35,7 @@ const Main = () => {
         />
       </span>
       <span>
-        <CardContainer />
+        <CardContainer activeCollection={activeCollectionId} />
       </span>
     </div>
   );

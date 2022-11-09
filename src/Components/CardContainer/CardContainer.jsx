@@ -1,16 +1,14 @@
 import React, { useState } from "react";
+import AddCollectionBtn from "../../AddCollectionBtn/AddCollectionBtn";
+import AddCardBtn from "../../AddCardBtn/AddCardBtn";
+import CardViewer from "../CardViewer/CardViewer";
 
-const CardContainer = () => {
+const CardContainer = ({ activeCollectionId }) => {
   return (
     <div className="collection_container">
-      <div className="btn_container">
-        <div>
-          <button className="btn">Add Collection</button>
-        </div>
-        <div>
-          <button className="btn">Add Card</button>
-        </div>
-      </div>
+      <AddCollectionBtn />
+      <AddCardBtn />
+      <CardViewer activeCollection={activeCollectionId} />
     </div>
   );
 };

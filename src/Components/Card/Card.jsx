@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Card = () => {
+const Card = (activeCollectionId) => {
   return;
 };
 
