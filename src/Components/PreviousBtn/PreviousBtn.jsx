@@ -1,5 +1,5 @@
 const PreviousBtn = ({ props }) => {
-  return;
+  return <button>Previous</button>;
 };
 
 export default PreviousBtn;

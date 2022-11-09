@@ -1,0 +1,10 @@
+.add_btns {
+  display: flex;
+  justify-content: end;
+}
+
+.card_viewer {
+  display: flex;
+  justify-content: center;
+  background-color: azure;
+}

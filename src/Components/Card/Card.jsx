@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-const Card = (activeCollectionId, cards) => {
+import "./Card.css";
+
+const Card = ({ activeCollectionId, cards, activeCardId }) => {
   return (
-    <div>
-      <div>
-        <div>Edit Icon</div>
-        <div>1/10</div>
-        <div>Delete Icon</div>
+    <div className="card">
+      <div className="card_icons">
+        <span>Edit Icon</span>
+        <span>{activeCardId.id}/10</span>
+        <span>Delete Icon</span>
       </div>
-      <div></div>
+      <div>{activeCardId.word}</div>
     </div>
   );
 };

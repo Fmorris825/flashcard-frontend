@@ -38,10 +38,11 @@ const Main = () => {
 
   async function getActiveCard() {
     const response = await axios.get(
-      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}`
+      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}/`
     );
-    setCards(response.data);
+    setActiveCardId(response.data);
   }
+  console.log(activeCardId.word);
 
   return (
     <div className="main_body">
@@ -52,8 +53,12 @@ const Main = () => {
           activeCollection={activeCollectionId}
         />
       </span>
-      <span>
-        <CardContainer activeCollection={activeCollectionId} cards={cards} />
+      <span className="card_container">
+        <CardContainer
+          activeCollection={activeCollectionId}
+          cards={cards}
+          activeCardId={activeCardId}
+        />
       </span>
     </div>
   );

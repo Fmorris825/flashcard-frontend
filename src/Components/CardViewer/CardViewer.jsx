@@ -3,11 +3,17 @@ import Card from "../Card/Card";
 import NextBtn from "../NextBtn/NextBtn";
 import PreviousBtn from "../PreviousBtn/PreviousBtn";
 
-const CardViewer = ({ activeCollectionId, cards }) => {
+import "./CardViewer.css";
+
+const CardViewer = ({ activeCollectionId, cards, activeCardId }) => {
   return (
-    <div>
+    <div className="card">
       <div>
-        <Card activeCollection={activeCollectionId} cards={cards} />
+        <Card
+          activeCollection={activeCollectionId}
+          cards={cards}
+          activeCardId={activeCardId}
+        />
       </div>
       <div>
         <PreviousBtn />

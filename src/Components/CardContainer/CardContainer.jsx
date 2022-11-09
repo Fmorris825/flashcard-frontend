@@ -3,12 +3,26 @@ import AddCollectionBtn from "../AddCollectionBtn/AddCollectionBtn";
 import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import CardViewer from "../CardViewer/CardViewer";
 
-const CardContainer = ({ activeCollectionId, cards }) => {
+import "./CardContainer.css";
+
+const CardContainer = ({ activeCollectionId, cards, activeCardId }) => {
   return (
-    <div className="collection_container">
-      <AddCollectionBtn />
-      <AddCardBtn />
-      <CardViewer activeCollection={activeCollectionId} cards={cards} />
+    <div className="card_container">
+      <div className="add_btns">
+        <div>
+          <AddCollectionBtn />
+        </div>
+        <div>
+          <AddCardBtn />
+        </div>
+      </div>
+      <div className="card_viewer">
+        <CardViewer
+          activeCollection={activeCollectionId}
+          cards={cards}
+          activeCardId={activeCardId}
+        />
+      </div>
     </div>
   );
 };
