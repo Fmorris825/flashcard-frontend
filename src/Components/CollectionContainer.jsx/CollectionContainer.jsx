@@ -10,7 +10,13 @@ const CollectionContainer = ({
   return (
     <div>
       {collections.map((collection) => {
-        return <Collection collection={collection} />;
+        return (
+          <Collection
+            collection={collection}
+            setActiveCollectionId={setActiveCollectionId}
+            activeCollection={activeCollectionId}
+          />
+        );
       })}
     </div>
   );

@@ -14,7 +14,7 @@ const Main = () => {
 
   const [collections, setCollections] = useState([]);
   const [card, setCard] = useState([]);
-  const [activeCollectionId, setActiveCollection] = useState(0);
+  const [activeCollectionId, setActiveCollectionId] = useState(0);
   const [activeCard, setActiveCard] = useState([]);
 
   async function getAllCollections() {
@@ -22,7 +22,7 @@ const Main = () => {
     setCollections(response.data);
   }
   // console.log(collections);
-  // console.log(activeCollectionId);
+  console.log(activeCollectionId);
   // console.log(activeCollection.title);
 
   return (
@@ -30,7 +30,7 @@ const Main = () => {
       <span>
         <Sidebar
           collections={collections}
-          setActiveCollection={setActiveCollection}
+          setActiveCollectionId={setActiveCollectionId}
           activeCollection={activeCollectionId}
         />
       </span>
