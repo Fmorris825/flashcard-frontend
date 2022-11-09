@@ -3,12 +3,12 @@ import AddCollectionBtn from "../AddCollectionBtn/AddCollectionBtn";
 import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import CardViewer from "../CardViewer/CardViewer";
 
-const CardContainer = ({ activeCollectionId }) => {
+const CardContainer = ({ activeCollectionId, cards }) => {
   return (
     <div className="collection_container">
       <AddCollectionBtn />
       <AddCardBtn />
-      <CardViewer activeCollection={activeCollectionId} />
+      <CardViewer activeCollection={activeCollectionId} cards={cards} />
     </div>
   );
 };

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import Card from "../Card/Card";
+import NextBtn from "../NextBtn/NextBtn";
+import PreviousBtn from "../PreviousBtn/PreviousBtn";
 
-const CardViewer = ({ activeCollectionId }) => {
+const CardViewer = ({ activeCollectionId, cards }) => {
   return (
     <div>
-      <Card activeCollection={activeCollectionId} />
+      <div>
+        <Card activeCollection={activeCollectionId} cards={cards} />
+      </div>
+      <div>
+        <PreviousBtn />
+        <NextBtn />
+      </div>
     </div>
   );
 };

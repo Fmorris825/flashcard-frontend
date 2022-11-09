@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Sidebar from "../Sidebar.jsx/Sidebar";
-import CollectionContainer from "../CollectionContainer.jsx/CollectionContainer";
 import CardContainer from "../CardContainer/CardContainer";
 
 import "./Main.css";
@@ -12,18 +11,37 @@ const Main = () => {
     getAllCollections();
   }, []);
 
+  useEffect(() => {
+    getCardsForCollection();
+  }, []);
+
+  useEffect(() => {
+    getActiveCard();
+  }, []);
+
   const [collections, setCollections] = useState([]);
-  const [card, setCard] = useState([]);
-  const [activeCollectionId, setActiveCollectionId] = useState(0);
-  const [activeCard, setActiveCard] = useState([]);
+  const [cards, setCards] = useState([]);
+  const [activeCollectionId, setActiveCollectionId] = useState(1);
+  const [activeCardId, setActiveCardId] = useState(1);
 
   async function getAllCollections() {
     const response = await axios.get("http://127.0.0.1:8000/api/collections/");
     setCollections(response.data);
   }
-  // console.log(collections);
-  console.log(activeCollectionId);
-  // console.log(activeCollection.title);
+
+  async function getCardsForCollection() {
+    const response = await axios.get(
+      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/`
+    );
+    setCards(response.data);
+  }
+
+  async function getActiveCard() {
+    const response = await axios.get(
+      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}`
+    );
+    setCards(response.data);
+  }
 
   return (
     <div className="main_body">
@@ -35,7 +53,7 @@ const Main = () => {
         />
       </span>
       <span>
-        <CardContainer activeCollection={activeCollectionId} />
+        <CardContainer activeCollection={activeCollectionId} cards={cards} />
       </span>
     </div>
   );
