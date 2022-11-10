@@ -7,17 +7,21 @@ import CardContainer from "../CardContainer/CardContainer";
 import "./Main.css";
 
 const Main = () => {
+  const [collections, setCollections] = useState([]);
+  const [activeCollection, setActiveCollection] = useState(1);
+  const [cards, setCards] = useState([]);
+
   useEffect(() => {
     getAllCollections();
   }, []);
 
+  useEffect(() => {
+    getCardsforCollection();
+  }, [activeCollection]);
+
   // useEffect(() => {
   //   getActiveCard();
   // }, []);
-
-  const [collections, setCollections] = useState([]);
-  const [activeCardId, setActiveCardId] = useState(1);
-  const [cards, setCards] = useState([]);
 
   // const addCard = (cardData) => setCards([...cards, cardData]);
   // pass addCard into addCardForm
@@ -30,14 +34,12 @@ const Main = () => {
     setCollections(response.data);
   }
 
-  // async function getCardsforCollection() {
-  //   const response = await axios.get(
-  //     `http://127.0.0.1:8000/api/collections/${activeCollection}/cards/`
-  //   );
-  //   setCards(response.data);
-  //   console.log(activeCollection);
-  //   console.log(cards);
-  // }
+  async function getCardsforCollection() {
+    const response = await axios.get(
+      `http://127.0.0.1:8000/api/collections/${activeCollection}/cards/`
+    );
+    setCards(response.data);
+  }
 
   // async function getActiveCard() {
   //   const response = await axios.get(
@@ -52,10 +54,13 @@ const Main = () => {
         collections={collections}
         setCollections={setCollections}
         setCards={setCards}
-        // setActiveCollection={setActiveCollection}
-        // getCardsforCollection={getCardsforCollection}
+        setActiveCollection={setActiveCollection}
       />
-      <CardContainer />
+      <CardContainer
+        cards={cards}
+        activeCollection={activeCollection}
+        getCardsforCollection={getCardsforCollection}
+      />
     </div>
   );
 };

@@ -5,14 +5,23 @@ import PreviousBtn from "../PreviousBtn/PreviousBtn";
 
 import "./CardViewer.css";
 
-const CardViewer = ({ collections }) => {
+const CardViewer = ({ collections, cards }) => {
+  const [cardIndex, setCardIndex] = useState(0);
+
+  const displayCard = cards[cardIndex];
   return (
     <div className="card_viewer">
       <div>
-        <Card collections={collections} />
+        <Card
+          collections={collections}
+          displayCard={displayCard}
+          cards={cards}
+          setCardIndex={setCardIndex}
+          cardIndex={cardIndex}
+        />
         <div className="card_btns">
-          <PreviousBtn />
-          <NextBtn />
+          <PreviousBtn cardIndex={cardIndex} />
+          <NextBtn cardIndex={cardIndex} />
         </div>
       </div>
     </div>

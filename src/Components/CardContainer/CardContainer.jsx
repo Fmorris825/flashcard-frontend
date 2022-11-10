@@ -7,22 +7,31 @@ import AddCardForm from "../AddCardForm/AddCardForm";
 
 import "./CardContainer.css";
 
-const CardContainer = ({ activeCollectionId, cards, activeCardId }) => {
+const CardContainer = ({ activeCollection, cards, getCardsforCollection }) => {
+  const [activeCardId, setActiveCardId] = useState(0);
+
   return (
     <div className="card_container">
       <div className="add_btns">
         <AddCollectionBtn />
 
-        {/* <AddCardModal title="Add Card">
-            Add Card
-            <AddCardForm />
-          </AddCardModal> */}
+        {/* <AddCardModal
+          title="Add Card"
+          getCardsforCollection={getCardsforCollection}
+          cards={cards}
+        >
+          Add Card
+          <AddCardForm
+            getCardsforCollection={getCardsforCollection}
+            cards={cards}
+          />
+        </AddCardModal> */}
       </div>
 
       <CardViewer
-        activeCollection={activeCollectionId}
-        cards={cards}
         activeCardId={activeCardId}
+        cards={cards}
+        setActiveCardId={setActiveCardId}
       />
     </div>
   );

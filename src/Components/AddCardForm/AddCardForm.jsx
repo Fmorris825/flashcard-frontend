@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import "./AddCardForm.css";
 
-const AddCardForm = () => {
+const AddCardForm = ({ getCardsforCollection }) => {
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
 
@@ -14,9 +15,9 @@ const AddCardForm = () => {
       `http://127.0.http://127.0.0.1:8000/api/collections/${1}/cards/.1:8000/api/music/`,
       newCard
     );
-    // if (response.status === 201) {
-    //   await getallcards();
-    // }
+    if (response.status === 201) {
+      await getCardsforCollection();
+    }
   }
 
   const handleSubmit = (event) => {
@@ -25,22 +26,19 @@ const AddCardForm = () => {
   };
 
   return (
-    <form>
-      {" "}
-      onSubmit={handleSubmit}
-      <input
-        label="Word"
-        name="word"
-        value={word}
-        onChange={(event) => setWord(event.target.value)}
-      />
-      <input
-        label="Definition"
-        name="definition"
-        value={definition}
-        onChange={(event) => setDefinition(event.target.value)}
-      />
-      <button>Add</button>
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="input_group">
+        <label>Word:</label>
+        <input value={word} onChange={(event) => setWord(event.target.value)} />
+      </div>
+      <div className="input_group">
+        <label>Definition:</label>
+        <input
+          value={definition}
+          onChange={(event) => setDefinition(event.target.value)}
+        />
+      </div>
+      <button type="submit">Add Card</button>
     </form>
   );
 };

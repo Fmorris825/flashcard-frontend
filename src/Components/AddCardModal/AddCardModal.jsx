@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddCardModal.css";
 
-const AddCardModal = ({ title, onClose, children }) => {
+const AddCardModal = ({ title, onClose, children, getCardsforCollection }) => {
   return (
     <div className="modal-bg">
       <div className="modal">
