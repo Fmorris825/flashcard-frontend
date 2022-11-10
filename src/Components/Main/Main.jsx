@@ -11,55 +11,51 @@ const Main = () => {
     getAllCollections();
   }, []);
 
-  useEffect(() => {
-    getCardsForCollection();
-  }, []);
-
-  useEffect(() => {
-    getActiveCard();
-  }, []);
+  // useEffect(() => {
+  //   getActiveCard();
+  // }, []);
 
   const [collections, setCollections] = useState([]);
-  const [cards, setCards] = useState([]);
-  const [activeCollectionId, setActiveCollectionId] = useState(1);
   const [activeCardId, setActiveCardId] = useState(1);
+  const [cards, setCards] = useState([]);
+
+  // const addCard = (cardData) => setCards([...cards, cardData]);
+  // pass addCard into addCardForm
+
+  // const [cards, setCards] = useState([]);
+  // const [activeCollection, setActiveCollection] = useState(1);
 
   async function getAllCollections() {
     const response = await axios.get("http://127.0.0.1:8000/api/collections/");
     setCollections(response.data);
   }
 
-  async function getCardsForCollection() {
-    const response = await axios.get(
-      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/`
-    );
-    setCards(response.data);
-  }
+  // async function getCardsforCollection() {
+  //   const response = await axios.get(
+  //     `http://127.0.0.1:8000/api/collections/${activeCollection}/cards/`
+  //   );
+  //   setCards(response.data);
+  //   console.log(activeCollection);
+  //   console.log(cards);
+  // }
 
-  async function getActiveCard() {
-    const response = await axios.get(
-      `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}/`
-    );
-    setActiveCardId(response.data);
-  }
-  console.log(activeCardId.word);
+  // async function getActiveCard() {
+  //   const response = await axios.get(
+  //     `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}/`
+  //   );
+  //   setActiveCardId(response.data);
+  // }
 
   return (
     <div className="main_body">
-      <span>
-        <Sidebar
-          collections={collections}
-          setActiveCollectionId={setActiveCollectionId}
-          activeCollection={activeCollectionId}
-        />
-      </span>
-      <span className="card_container">
-        <CardContainer
-          activeCollection={activeCollectionId}
-          cards={cards}
-          activeCardId={activeCardId}
-        />
-      </span>
+      <Sidebar
+        collections={collections}
+        setCollections={setCollections}
+        setCards={setCards}
+        // setActiveCollection={setActiveCollection}
+        // getCardsforCollection={getCardsforCollection}
+      />
+      <CardContainer />
     </div>
   );
 };

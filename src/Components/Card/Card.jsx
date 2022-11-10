@@ -7,10 +7,10 @@ const Card = ({ activeCollectionId, cards, activeCardId }) => {
     <div className="card">
       <div className="card_icons">
         <span>Edit Icon</span>
-        <span>{activeCardId.id}/10</span>
+        <span>card num/10</span>
         <span>Delete Icon</span>
       </div>
-      <div>{activeCardId.word}</div>
+      <div>card word</div>
     </div>
   );
 };

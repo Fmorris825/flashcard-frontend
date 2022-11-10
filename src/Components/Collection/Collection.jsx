@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
+import axios from "axios";
 
-const Collection = ({
-  collection,
-  setActiveCollectionId,
-  activeCollectionId,
-}) => {
-  const handleClick = (id) => {
-    let activeCollectionId = id;
-    setActiveCollectionId(activeCollectionId);
+const Collection = ({ collection, setActiveCollection }) => {
+  const hanldeClick = () => {
+    setActiveCollection(collection.id);
   };
+
   return (
-    <div onClick={() => handleClick(collection.id)} value={collection.id}>
+    <div value={collection.id} onClick={hanldeClick}>
       {collection.title}
     </div>
   );

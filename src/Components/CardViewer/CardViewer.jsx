@@ -5,19 +5,17 @@ import PreviousBtn from "../PreviousBtn/PreviousBtn";
 
 import "./CardViewer.css";
 
-const CardViewer = ({ activeCollectionId, cards, activeCardId }) => {
+const CardViewer = ({ collections }) => {
   return (
-    <div className="card">
-      <div>
-        <Card
-          activeCollection={activeCollectionId}
-          cards={cards}
-          activeCardId={activeCardId}
-        />
-      </div>
-      <div>
-        <PreviousBtn />
-        <NextBtn />
+    <div className="card_viewer">
+      <div className="card">
+        <div>
+          <Card collections={collections} />
+        </div>
+        <div>
+          <PreviousBtn />
+          <NextBtn />
+        </div>
       </div>
     </div>
   );

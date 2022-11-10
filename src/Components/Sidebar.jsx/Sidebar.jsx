@@ -6,8 +6,10 @@ import Collection from "../Collection/Collection";
 
 const Sidebar = ({
   collections,
-  setActiveCollectionId,
-  activeCollectionId,
+  setActiveCollection,
+  getCardsforCollection,
+  setCollections,
+  setCards,
 }) => {
   const [show, setShow] = useState(false);
 
@@ -15,8 +17,10 @@ const Sidebar = ({
     <div className="sidebar">
       <CollectionContainer
         collections={collections}
-        setActiveCollectionId={setActiveCollectionId}
-        activeCollection={activeCollectionId}
+        setActiveCollection={setActiveCollection}
+        getCardsforCollection={getCardsforCollection}
+        setCollections={setCollections}
+        setCards={setCards}
       />
     </div>
   );
