@@ -8,6 +8,7 @@ import "./CardViewer.css";
 
 const CardViewer = ({ collections, cards }) => {
   const [cardIndex, setCardIndex] = useState(0);
+  const [flipCard, setFlipCard] = useState(true);
 
   const displayCard = cards[cardIndex];
 
@@ -15,6 +16,8 @@ const CardViewer = ({ collections, cards }) => {
     <div className="card_viewer">
       <div>
         <Card
+          show={flipCard}
+          setFlipCard={setFlipCard}
           collections={collections}
           displayCard={displayCard}
           cards={cards}
