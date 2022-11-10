@@ -8,11 +8,9 @@ import "./CardViewer.css";
 const CardViewer = ({ collections }) => {
   return (
     <div className="card_viewer">
-      <div className="card">
-        <div>
-          <Card collections={collections} />
-        </div>
-        <div>
+      <div>
+        <Card collections={collections} />
+        <div className="card_btns">
           <PreviousBtn />
           <NextBtn />
         </div>

@@ -1,6 +1,20 @@
 .card_icons {
+  display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+  width: 500px;
+  height: 250px;
+}
+
+.card_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

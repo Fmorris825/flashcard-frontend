@@ -1,13 +1,13 @@
-.card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
 .card_viewer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   margin-bottom: 200px;
+}
+
+.card_btns {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px;
 }
