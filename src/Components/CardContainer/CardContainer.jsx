@@ -17,13 +17,13 @@ const CardContainer = ({ activeCollectionId, cards, activeCardId }) => {
             Add Card
             <AddCardForm />
           </AddCardModal> */}
-
-        <CardViewer
-          activeCollection={activeCollectionId}
-          cards={cards}
-          activeCardId={activeCardId}
-        />
       </div>
+
+      <CardViewer
+        activeCollection={activeCollectionId}
+        cards={cards}
+        activeCardId={activeCardId}
+      />
     </div>
   );
 };

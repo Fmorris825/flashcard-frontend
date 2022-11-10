@@ -3,3 +3,11 @@
   align-items: center;
   flex-direction: column;
 }
+
+.card_viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 200px;
+}
