@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Card from "../Card/Card";
 import NextBtn from "../NextBtn/NextBtn";
 import PreviousBtn from "../PreviousBtn/PreviousBtn";
@@ -20,8 +21,12 @@ const CardViewer = ({ collections, cards }) => {
           cardIndex={cardIndex}
         />
         <div className="card_btns">
-          <PreviousBtn cardIndex={cardIndex} />
-          <NextBtn cardIndex={cardIndex} />
+          <PreviousBtn cardIndex={cardIndex} setCardIndex={setCardIndex} />
+          <NextBtn
+            cardIndex={cardIndex}
+            setCardIndex={setCardIndex}
+            cards={cards}
+          />
         </div>
       </div>
     </div>

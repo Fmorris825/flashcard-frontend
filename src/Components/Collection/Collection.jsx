@@ -6,11 +6,7 @@ const Collection = ({ collection, setActiveCollection }) => {
     setActiveCollection(collection.id);
   };
 
-  return (
-    <div value={collection.id} onClick={hanldeClick}>
-      {collection.title}
-    </div>
-  );
+  return <div onClick={hanldeClick}>{collection.title}</div>;
 };
 
 export default Collection;
