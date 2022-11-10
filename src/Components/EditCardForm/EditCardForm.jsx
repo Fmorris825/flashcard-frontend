@@ -2,19 +2,20 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCardForm.css";
 
-const AddCardForm = ({ getCardsforCollection }) => {
+const EditCardForm = ({ getCardsforCollection }) => {
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
   const [collection, setCollection] = useState(0);
+  const [CardId, setCardId] = useState(0);
 
-  async function addCard() {
-    let newCard = {
+  async function editCard() {
+    let editedCard = {
       word: word,
       definition: definition,
     };
-    let response = await axios.post(
-      `http://127.0.0.1:8000/api/collections/${collection}/cards/`,
-      newCard
+    let response = await axios.put(
+      `http://127.0.0.1:8000/api/collections/${collection}/cards/${CardId}/`,
+      editedCard
     );
     if (response.status === 201) {
       await getCardsforCollection();
@@ -23,10 +24,11 @@ const AddCardForm = ({ getCardsforCollection }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addCard();
+    editCard();
     setWord("");
     setDefinition("");
     setCollection(0);
+    setCardId("");
   };
 
   return (
@@ -36,6 +38,13 @@ const AddCardForm = ({ getCardsforCollection }) => {
         <input
           value={collection}
           onChange={(event) => setCollection(event.target.value)}
+        />
+      </div>
+      <div className="input_group">
+        <label>Card Id:</label>
+        <input
+          value={CardId}
+          onChange={(event) => setCardId(event.target.value)}
         />
       </div>
       <div className="input_group">
@@ -54,4 +63,4 @@ const AddCardForm = ({ getCardsforCollection }) => {
   );
 };
 
-export default AddCardForm;
+export default EditCardForm;

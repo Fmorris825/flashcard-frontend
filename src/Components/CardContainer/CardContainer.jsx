@@ -4,6 +4,7 @@ import AddCardBtn from "../AddCardForm/AddCardForm";
 import CardViewer from "../CardViewer/CardViewer";
 import AddCardModal from "../AddCardModal/AddCardModal";
 import AddCardForm from "../AddCardForm/AddCardForm";
+import EditCardForm from "../EditCardForm/EditCardForm";
 
 import "./CardContainer.css";
 
@@ -14,7 +15,14 @@ const CardContainer = ({ activeCollection, cards, getCardsforCollection }) => {
     <div className="card_container">
       <div className="add_btns">
         <AddCollectionBtn />
-
+        <AddCardForm
+          cards={cards}
+          getCardsforCollection={getCardsforCollection}
+        />
+        <EditCardForm
+          cards={cards}
+          getCardsforCollection={getCardsforCollection}
+        />
         {/* <AddCardModal
           title="Add Card"
           getCardsforCollection={getCardsforCollection}

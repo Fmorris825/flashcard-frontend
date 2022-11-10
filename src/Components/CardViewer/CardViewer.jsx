@@ -10,6 +10,7 @@ const CardViewer = ({ collections, cards }) => {
   const [cardIndex, setCardIndex] = useState(0);
 
   const displayCard = cards[cardIndex];
+
   return (
     <div className="card_viewer">
       <div>

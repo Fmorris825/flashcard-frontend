@@ -17,7 +17,7 @@ const Main = () => {
 
   useEffect(() => {
     getCardsforCollection();
-  }, [activeCollection]);
+  }, [activeCollection, collections, cards]);
 
   // useEffect(() => {
   //   getActiveCard();
