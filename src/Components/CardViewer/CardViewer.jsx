@@ -21,7 +21,11 @@ const CardViewer = ({ collections, cards }) => {
           cardIndex={cardIndex}
         />
         <div className="card_btns">
-          <PreviousBtn cardIndex={cardIndex} setCardIndex={setCardIndex} />
+          <PreviousBtn
+            cardIndex={cardIndex}
+            setCardIndex={setCardIndex}
+            cards={cards}
+          />
           <NextBtn
             cardIndex={cardIndex}
             setCardIndex={setCardIndex}
