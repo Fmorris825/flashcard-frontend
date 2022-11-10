@@ -17,7 +17,7 @@ const EditCardForm = ({ getCardsforCollection }) => {
       `http://127.0.0.1:8000/api/collections/${collection}/cards/${CardId}/`,
       editedCard
     );
-    if (response.status === 201) {
+    if (response.status === 200) {
       await getCardsforCollection();
     }
   }
@@ -58,7 +58,7 @@ const EditCardForm = ({ getCardsforCollection }) => {
           onChange={(event) => setDefinition(event.target.value)}
         />
       </div>
-      <button type="submit">Add Card</button>
+      <button type="submit">Edit Card</button>
     </form>
   );
 };
