@@ -11,3 +11,10 @@
   justify-content: space-evenly;
   padding: 15px;
 }
+
+.card_stats {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  padding-bottom: 20px;
+}

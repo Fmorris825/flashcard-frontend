@@ -18,6 +18,7 @@ const CardContainer = ({ activeCollection, cards, getCardsforCollection }) => {
         cards={cards}
         setActiveCardId={setActiveCardId}
         getCardsforCollection={getCardsforCollection}
+        activeCollection={activeCollection}
       />
     </div>
   );

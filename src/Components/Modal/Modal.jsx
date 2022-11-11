@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./Modal.css";
 import AddCardForm from "../AddCardForm/AddCardForm";
 
-const Modal = ({ show, title, getCardsforCollection, setAddShowModal }) => {
+const Modal = ({
+  show,
+  title,
+  getCardsforCollection,
+  setAddShowModal,
+  activeCollection,
+}) => {
   const handleModal = () => {
     setAddShowModal(false);
   };
@@ -19,6 +25,7 @@ const Modal = ({ show, title, getCardsforCollection, setAddShowModal }) => {
           <AddCardForm
             setAddShowModal={setAddShowModal}
             getCardsforCollection={getCardsforCollection}
+            activeCollection={activeCollection}
           />
         </div>
       </div>

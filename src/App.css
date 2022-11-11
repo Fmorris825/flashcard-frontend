@@ -15,9 +15,16 @@ button {
   box-shadow: 3px 3px 6px darkgrey;
 }
 
+button:hover {
+  background-color: #6495ed;
+  color: black;
+}
+
 input {
   box-shadow: 3px 3px 5px darkgrey;
 }
 
 .modal {
+  width: 400px;
+  height: 450px;
 }

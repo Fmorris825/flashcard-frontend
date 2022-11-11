@@ -2,10 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCardForm.css";
 
-const AddCardForm = ({ getCardsforCollection, setAddShowModal }) => {
+const AddCardForm = ({
+  getCardsforCollection,
+  setAddShowModal,
+  activeCollection,
+}) => {
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
-  const [collection, setCollection] = useState(0);
 
   async function addCard() {
     let newCard = {
@@ -13,7 +16,7 @@ const AddCardForm = ({ getCardsforCollection, setAddShowModal }) => {
       definition: definition,
     };
     let response = await axios.post(
-      `http://127.0.0.1:8000/api/collections/${collection}/cards/`,
+      `http://127.0.0.1:8000/api/collections/${activeCollection}/cards/`,
       newCard
     );
     if (response.status === 201) {
@@ -29,19 +32,18 @@ const AddCardForm = ({ getCardsforCollection, setAddShowModal }) => {
     addCard();
     setWord("");
     setDefinition("");
-    setCollection(0);
     handleModal();
   };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <div className="input_group">
+      {/* <div className="input_group">
         <label>Collection:</label>
         <input
           value={collection}
           onChange={(event) => setCollection(event.target.value)}
         />
-      </div>
+      </div> */}
       <div className="input_group">
         <label>Word:</label>
         <input value={word} onChange={(event) => setWord(event.target.value)} />
