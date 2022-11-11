@@ -9,7 +9,6 @@ import "./CardViewer.css";
 const CardViewer = ({ collections, cards, getCardsforCollection }) => {
   const [cardIndex, setCardIndex] = useState(0);
   const [flipCard, setFlipCard] = useState(true);
-  let [displayedCard, setDisplayedCard] = useState({});
 
   return (
     <div className="card_viewer">

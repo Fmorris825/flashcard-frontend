@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "../Modal/Modal";
 import AddCardButton from "../AddCardBtn/AddCardBtn";
 import DeleteCardButton from "./DeleteCardButton/DeleteCardButton";
 import DeleteModal from "../DeleteModal/DeleteModal";
+import CardInfo from "../CardInfo/CardInfo";
+import CardInfoBack from "../CardInfoBack/CardInfoBack";
+import CardId from "../CardId/CardId";
 
 import "./Card.css";
 
@@ -13,39 +16,49 @@ const Card = ({
   show,
   getCardsforCollection,
 }) => {
+  useEffect(() => {
+    getCardsforCollection();
+  }, []);
+
   const handleFlip = () => setFlipCard(false);
   const handleFlipBack = () => setFlipCard(true);
+
   const numOfCards = cards.length;
+
   const displayCard = cards[cardIndex];
 
   const [showAddModal, setAddShowModal] = useState(false);
   const [showDeleteModal, setDeleteShowModal] = useState(false);
+  const [showdisplayCard, setShowdisplayCard] = useState(false);
 
   return show ? (
     <div className="card">
       <div className="card_icons">
-        <AddCardButton setAddShowModal={setAddShowModal} />
-        <Modal
-          show={showAddModal}
-          title={"Add Card"}
-          setAddShowModal={setAddShowModal}
-          getCardsforCollection={getCardsforCollection}
-        />
+        <span>
+          <AddCardButton setAddShowModal={setAddShowModal} />
+          <Modal
+            show={showAddModal}
+            title={"Add Card"}
+            setAddShowModal={setAddShowModal}
+            getCardsforCollection={getCardsforCollection}
+          />
+          <DeleteCardButton setDeleteShowModal={setDeleteShowModal} />
+          <DeleteModal
+            show={showDeleteModal}
+            title={"Add Card"}
+            setDeleteShowModal={setDeleteShowModal}
+            getCardsforCollection={getCardsforCollection}
+          />
+        </span>
         <span>
           {cardIndex + 1}/{numOfCards}
         </span>
-        <span>{displayCard.id}</span>
+        <CardId displayCard={displayCard} />
+
         <span></span>
-        <DeleteCardButton setDeleteShowModal={setDeleteShowModal} />
-        <DeleteModal
-          show={showDeleteModal}
-          title={"Add Card"}
-          setDeleteShowModal={setDeleteShowModal}
-          getCardsforCollection={getCardsforCollection}
-        />
       </div>
       <div onClick={handleFlip} className="card_info">
-        <p>{displayCard.word}</p>
+        <CardInfo displayCard={displayCard} />
       </div>
     </div>
   ) : (
@@ -55,12 +68,12 @@ const Card = ({
         <span>
           {cardIndex + 1}/{numOfCards}
         </span>
-        <span>{displayCard.id}</span>
+        <CardId displayCard={displayCard} />
         <span></span>
         <span>Delete Icon</span>
       </div>
       <div onClick={handleFlipBack} className="card_info">
-        <p>{displayCard.definition}</p>
+        <CardInfoBack displayCard={displayCard} />
       </div>
     </div>
   );

@@ -18,17 +18,6 @@ const CardContainer = ({ activeCollection, cards, getCardsforCollection }) => {
           cards={cards}
           getCardsforCollection={getCardsforCollection}
         />
-        {/* <AddCardModal
-          title="Add Card"
-          getCardsforCollection={getCardsforCollection}
-          cards={cards}
-        >
-          Add Card
-          <AddCardForm
-            getCardsforCollection={getCardsforCollection}
-            cards={cards}
-          />
-        </AddCardModal> */}
       </div>
 
       <CardViewer
