@@ -13,13 +13,6 @@ const CardContainer = ({ activeCollection, cards, getCardsforCollection }) => {
 
   return (
     <div className="card_container">
-      <div className="add_btns">
-        <EditCardForm
-          cards={cards}
-          getCardsforCollection={getCardsforCollection}
-        />
-      </div>
-
       <CardViewer
         activeCardId={activeCardId}
         cards={cards}

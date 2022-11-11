@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Modal from "../Modal/Modal";
-import AddCardButton from "../AddCardBtn/AddCardBtn";
-import DeleteCardButton from "./DeleteCardButton/DeleteCardButton";
+import AddCardBtn from "../AddCardBtn/AddCardBtn";
+import DeleteCardBtn from "../DeleteCardBtn/DeleteCardBtn";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import CardInfo from "../CardInfo/CardInfo";
 import CardInfoBack from "../CardInfoBack/CardInfoBack";
 import CardId from "../CardId/CardId";
+import EditCardBtn from "../EditCardBtn/EditCardBtn";
+import EditModal from "../EditModal/EditModal";
 
 import "./Card.css";
 
@@ -29,23 +31,30 @@ const Card = ({
 
   const [showAddModal, setAddShowModal] = useState(false);
   const [showDeleteModal, setDeleteShowModal] = useState(false);
-  const [showdisplayCard, setShowdisplayCard] = useState(false);
+  const [showEditModal, setEditShowModal] = useState(false);
 
   return show ? (
     <div className="card">
       <div className="card_icons">
         <span>
-          <AddCardButton setAddShowModal={setAddShowModal} />
+          <AddCardBtn setAddShowModal={setAddShowModal} />
           <Modal
             show={showAddModal}
             title={"Add Card"}
             setAddShowModal={setAddShowModal}
             getCardsforCollection={getCardsforCollection}
           />
-          <DeleteCardButton setDeleteShowModal={setDeleteShowModal} />
+          <EditCardBtn setEditShowModal={setEditShowModal} />
+          <EditModal
+            show={showEditModal}
+            title={"Edit Card"}
+            setEditShowModal={setEditShowModal}
+            getCardsforCollection={getCardsforCollection}
+          />
+          <DeleteCardBtn setDeleteShowModal={setDeleteShowModal} />
           <DeleteModal
             show={showDeleteModal}
-            title={"Add Card"}
+            title={"Delete Card"}
             setDeleteShowModal={setDeleteShowModal}
             getCardsforCollection={getCardsforCollection}
           />

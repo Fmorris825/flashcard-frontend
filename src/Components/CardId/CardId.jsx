@@ -1,5 +1,5 @@
 const CardId = ({ displayCard }) => {
-  return displayCard ? <span>{displayCard.id}</span> : null;
+  return displayCard ? <span>Card ID: {displayCard.id}</span> : null;
 };
 
 export default CardId;
