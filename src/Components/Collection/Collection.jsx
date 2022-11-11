@@ -1,12 +1,18 @@
-import React, { useDebugValue, useState } from "react";
-import axios from "axios";
+import "./Collection.css";
 
-const Collection = ({ collection, setActiveCollection }) => {
-  const hanldeClick = () => {
+const Collection = ({ collection, setActiveCollection, activeCollection }) => {
+  const handleClick = () => {
     setActiveCollection(collection.id);
   };
 
-  return <div onClick={hanldeClick}>{collection.title}</div>;
+  const buttonClass =
+    collection.id === activeCollection ? "active" : "inactive";
+
+  return (
+    <div id="collection" className={buttonClass} onClick={handleClick}>
+      {collection.title}
+    </div>
+  );
 };
 
 export default Collection;

@@ -31,12 +31,6 @@ const Main = () => {
     setCards(response.data);
   }
 
-  // async function getActiveCard() {
-  //   const response = await axios.get(
-  //     `http://127.0.0.1:8000/api/collections/${activeCollectionId}/cards/${activeCardId}/`
-  //   );
-  //   setActiveCardId(response.data);
-  // }
   return (
     <div className="main_body">
       <Sidebar
@@ -44,6 +38,7 @@ const Main = () => {
         setCollections={setCollections}
         setCards={setCards}
         setActiveCollection={setActiveCollection}
+        activeCollection={activeCollection}
       />
       <CardContainer
         cards={cards}

@@ -18,6 +18,9 @@ const Card = ({
   show,
   getCardsforCollection,
 }) => {
+  const [showAddModal, setAddShowModal] = useState(false);
+  const [showDeleteModal, setDeleteShowModal] = useState(false);
+  const [showEditModal, setEditShowModal] = useState(false);
   useEffect(() => {
     getCardsforCollection();
   }, []);
@@ -29,36 +32,34 @@ const Card = ({
 
   const displayCard = cards[cardIndex];
 
-  const [showAddModal, setAddShowModal] = useState(false);
-  const [showDeleteModal, setDeleteShowModal] = useState(false);
-  const [showEditModal, setEditShowModal] = useState(false);
-
+  if (!displayCard) return null;
   return show ? (
     <div className="card">
       <div className="card_icons">
-        <span>
-          <AddCardBtn setAddShowModal={setAddShowModal} />
-          <Modal
-            show={showAddModal}
-            title={"Add Card"}
-            setAddShowModal={setAddShowModal}
-            getCardsforCollection={getCardsforCollection}
-          />
-          <EditCardBtn setEditShowModal={setEditShowModal} />
-          <EditModal
-            show={showEditModal}
-            title={"Edit Card"}
-            setEditShowModal={setEditShowModal}
-            getCardsforCollection={getCardsforCollection}
-          />
-          <DeleteCardBtn setDeleteShowModal={setDeleteShowModal} />
-          <DeleteModal
-            show={showDeleteModal}
-            title={"Delete Card"}
-            setDeleteShowModal={setDeleteShowModal}
-            getCardsforCollection={getCardsforCollection}
-          />
-        </span>
+        <AddCardBtn setAddShowModal={setAddShowModal} />
+        <Modal
+          className="modal"
+          show={showAddModal}
+          title={"Add Card"}
+          setAddShowModal={setAddShowModal}
+          getCardsforCollection={getCardsforCollection}
+        />
+        <EditCardBtn setEditShowModal={setEditShowModal} />
+        <EditModal
+          className="modal"
+          show={showEditModal}
+          title={"Edit Card"}
+          setEditShowModal={setEditShowModal}
+          getCardsforCollection={getCardsforCollection}
+        />
+        <DeleteCardBtn setDeleteShowModal={setDeleteShowModal} />
+        <DeleteModal
+          className="modal"
+          show={showDeleteModal}
+          title={"Delete Card"}
+          setDeleteShowModal={setDeleteShowModal}
+          getCardsforCollection={getCardsforCollection}
+        />
         <span>
           {cardIndex + 1}/{numOfCards}
         </span>

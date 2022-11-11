@@ -7,9 +7,13 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: beige;
+  background-color: #f8f8ff;
   width: 500px;
   height: 250px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #4169e1;
+  box-shadow: 4px 4px 5px #4169e1;
 }
 
 .card_info {
