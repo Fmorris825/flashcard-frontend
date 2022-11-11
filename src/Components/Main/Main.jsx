@@ -17,7 +17,7 @@ const Main = () => {
 
   useEffect(() => {
     getCardsforCollection();
-  }, [activeCollection, collections, cards]);
+  }, [activeCollection]);
 
   // useEffect(() => {
   //   getActiveCard();
@@ -47,7 +47,6 @@ const Main = () => {
   //   );
   //   setActiveCardId(response.data);
   // }
-
   return (
     <div className="main_body">
       <Sidebar

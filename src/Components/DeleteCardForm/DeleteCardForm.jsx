@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCardForm.css";
 
-const DeleteCardForm = ({ getCardsforCollection }) => {
+const DeleteCardForm = ({ getCardsforCollection, setDeleteShowModal }) => {
   const [collection, setCollection] = useState(0);
   const [CardId, setCardId] = useState(0);
 
@@ -15,11 +15,16 @@ const DeleteCardForm = ({ getCardsforCollection }) => {
     }
   }
 
+  const handleModal = () => {
+    setDeleteShowModal(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     deleteCard();
     setCollection(0);
     setCardId("");
+    handleModal();
   };
 
   return (

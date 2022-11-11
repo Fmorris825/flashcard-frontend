@@ -6,11 +6,10 @@ import PreviousBtn from "../PreviousBtn/PreviousBtn";
 
 import "./CardViewer.css";
 
-const CardViewer = ({ collections, cards }) => {
+const CardViewer = ({ collections, cards, getCardsforCollection }) => {
   const [cardIndex, setCardIndex] = useState(0);
   const [flipCard, setFlipCard] = useState(true);
-
-  const displayCard = cards[cardIndex];
+  let [displayedCard, setDisplayedCard] = useState({});
 
   return (
     <div className="card_viewer">
@@ -19,10 +18,10 @@ const CardViewer = ({ collections, cards }) => {
           show={flipCard}
           setFlipCard={setFlipCard}
           collections={collections}
-          displayCard={displayCard}
           cards={cards}
           setCardIndex={setCardIndex}
           cardIndex={cardIndex}
+          getCardsforCollection={getCardsforCollection}
         />
         <div className="card_btns">
           <PreviousBtn

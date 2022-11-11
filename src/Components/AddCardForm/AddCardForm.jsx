@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./AddCardForm.css";
 
-const AddCardForm = ({ getCardsforCollection }) => {
+const AddCardForm = ({ getCardsforCollection, setAddShowModal }) => {
   const [word, setWord] = useState("");
   const [definition, setDefinition] = useState("");
   const [collection, setCollection] = useState(0);
@@ -21,12 +21,16 @@ const AddCardForm = ({ getCardsforCollection }) => {
     }
   }
 
+  const handleModal = () => {
+    setAddShowModal(false);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     addCard();
     setWord("");
     setDefinition("");
     setCollection(0);
+    handleModal();
   };
 
   return (
