@@ -48,6 +48,7 @@ const Card = ({
           setEditShowModal={setEditShowModal}
           getCardsforCollection={getCardsforCollection}
           activeCollection={activeCollection}
+          displayCard={displayCard}
         />
         <DeleteCardBtn setDeleteShowModal={setDeleteShowModal} />
         <DeleteModal
@@ -57,6 +58,7 @@ const Card = ({
           setDeleteShowModal={setDeleteShowModal}
           getCardsforCollection={getCardsforCollection}
           activeCollection={activeCollection}
+          displayCard={displayCard}
         />
       </div>
       <div onClick={handleFlip} className="card_info">

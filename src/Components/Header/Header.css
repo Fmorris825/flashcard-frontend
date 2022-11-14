@@ -2,6 +2,9 @@ header {
   display: flex;
   width: 100vw;
   background-color: royalblue;
+  border-bottom: #ffcc00;
+  border-style: solid;
+  border-width: 3px;
 }
 
 .brand {

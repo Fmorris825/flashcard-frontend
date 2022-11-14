@@ -7,6 +7,8 @@ const DeleteModal = ({
   title,
   getCardsforCollection,
   setDeleteShowModal,
+  displayCard,
+  activeCollection,
 }) => {
   const handleModal = () => {
     setDeleteShowModal(false);
@@ -24,6 +26,8 @@ const DeleteModal = ({
           <DeleteCardForm
             setDeleteShowModal={setDeleteShowModal}
             getCardsforCollection={getCardsforCollection}
+            displayCard={displayCard}
+            activeCollection={activeCollection}
           />
         </div>
       </div>

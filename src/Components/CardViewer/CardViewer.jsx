@@ -27,9 +27,6 @@ const CardViewer = ({
           <h2>
             Card {cardIndex + 1}/{numOfCards}
           </h2>
-          <h2>
-            <CardId displayCard={displayCard} />
-          </h2>
         </span>
         <Card
           show={flipCard}

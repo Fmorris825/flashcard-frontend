@@ -7,6 +7,8 @@ const EditModal = ({
   title,
   getCardsforCollection,
   setEditShowModal,
+  displayCard,
+  activeCollection,
 }) => {
   const handleModal = () => {
     setEditShowModal(false);
@@ -24,6 +26,8 @@ const EditModal = ({
           <EditCardForm
             setEditShowModal={setEditShowModal}
             getCardsforCollection={getCardsforCollection}
+            displayCard={displayCard}
+            activeCollection={activeCollection}
           />
         </div>
       </div>
